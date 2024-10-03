@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review & Comment Section</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h3 class="mb-4">User Reviews</h3>
+
+        <!-- Review Section -->
+        <div class="reviews">
+            <!-- Single Review -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">John Doe</h5>
+                    <p class="card-text">This is a fantastic product! I've been using it for months, and it's been
+                        great.</p>
+                    <p class="text-muted">Posted on 2024-10-03</p>
+                </div>
+            </div>
+
+            <!-- Single Review -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Jane Smith</h5>
+                    <p class="card-text">Had some issues with the setup, but customer support was helpful. Overall, I'm
+                        satisfied.</p>
+                    <p class="text-muted">Posted on 2024-10-01</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Comment Section -->
+        <h4 class="mt-5">Leave a Review</h4>
+        <form id="commentForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Your Review</label>
+                <textarea class="form-control" id="comment" rows="4" placeholder="Write your review here..."
+                    required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('commentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+
+            // Create new review card
+            const newReview = `
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">${name}</h5>
+                    <p class="card-text">${comment}</p>
+                    <p class="text-muted">Posted just now</p>
+                </div>
+            </div>
+        `;
+
+            // Append new review to the reviews section
+            document.querySelector('.reviews').insertAdjacentHTML('beforeend', newReview);
+
+            // Clear the form
+            document.getElementById('commentForm').reset();
+        });
+    </script>
+
+</body>
+
+</html>
