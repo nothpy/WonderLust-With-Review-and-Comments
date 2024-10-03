@@ -1,0 +1,17 @@
+<% layout("/layouts/boilerplate") %>
+
+<!-- <div id="error-page" class="container">
+    <h1 id="error-code">404</h1>
+    <p id="error-message">Sorry, the page you are looking for does not exist.</p>
+    <a href="/listings" class="btn btn-primary mt-4">Go Back to Home</a>
+</div> -->
+
+<div class="row mt-1">
+    <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    <div class="alert alert-danger col-6 offset-3" role="alert">
+        <h2>Server side error</h2>
+        <h4 class="alert-heading"><%= err.message %></h4>
+        <hr>
+        <p ><%= err.trace %></p>
+    </div>
+</div>
